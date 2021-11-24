@@ -26,7 +26,7 @@ export function orderbyRating(payload){
 /* ============PEDIDOS A LA API=============== */
 export function getGames() {    
   return function(dispatch) {
-    return axios.get("http://localhost:3001/videogames")
+    return axios.get("https://videojuegames.herokuapp.com/videogames")
     .then(response => {
     dispatch({ type: "GET_GAMES", payload: response.data});
     });
@@ -36,7 +36,7 @@ export function getGames() {
 export function getAGame(name) {  
   return function(dispatch) {
     if(name.length !== 0){
-    return axios.get(`http://localhost:3001/videogames?name=${name}`)
+    return axios.get(`https://videojuegames.herokuapp.com/videogames?name=${name}`)
     .then(response => {
       if(response.data.length !== 0){
     dispatch({ type: "GET_A_GAME", payload: response.data});    
@@ -49,7 +49,7 @@ export function getAGame(name) {
 
 export function getDetails(id) {    
   return function(dispatch) {
-    return axios.get(`http://localhost:3001/videogame/${id}`)
+    return axios.get(`https://videojuegames.herokuapp.com/videogame/${id}`)
     .then(response => {
       console.log(response.data)
       if(response.data.length !== 0){
@@ -65,7 +65,7 @@ export function getDetails(id) {
 
 export function getGenres() {    
   return function(dispatch) {
-    return axios.get("http://localhost:3001/genres")
+    return axios.get("https://videojuegames.herokuapp.com/genres")
     .then(response => {
     dispatch({ type: "GET_GENRES", payload: response.data});
     });
@@ -74,7 +74,7 @@ export function getGenres() {
 
 export function getPlatforms() {    
   return function(dispatch) {
-    return axios.get("http://localhost:3001/platforms")
+    return axios.get("https://videojuegames.herokuapp.com/platforms")
     .then(response => {
     dispatch({ type: "GET_PLATFORMS", payload: response.data});
     });
